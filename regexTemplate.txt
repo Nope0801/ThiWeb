@@ -1,0 +1,73 @@
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+const nameRegex = /^[a-zA-Z\s]+$/;
+const addressRegex = /^(?=.*\d)(?=.*[a-zA-Z]).+$/;
+
+const email = document.getElementById('email');
+const rate = document.getElementById('rate');
+const com = document.getElementById('com');
+
+function login(){
+    if(email.value.trim() === "" || rate.value === "" || com.value === ""){
+        alert("Vui lòng nhập đầy đủ thông tin");
+        return;
+    }
+    if(validateEmail(email.value.trim())=== false){
+        alert('Email không hợp lệ');
+        return;
+    }
+    if(validateRate(rate.value.trim())===false){
+        alert('Rate không hợp lệ');
+        return;
+    }
+
+}
+
+function validateEmail(email){
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function validateRate(rate){
+    const rateRegex =  /^(0|[1-9]\d*)(\.\d+)?$/;
+    return rateRegex.test(rate);
+}
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Free Web tutorials">
+	<meta name="keywords" content="HTML,CSS,JavaScript">
+	<meta name="author" content="John Doe">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+1. Đơn vị tuyệt đối:
+	1. px 
+	2. pt 
+	3. cm 
+	4. mm 
+	5. inch 
+	6. pc
+2. Đơn vị tương đối:
+	1. %
+	2. rem : phụ thuộc vào đơn vị của thẻ html
+	3. em: phụ thuộc vào thẻ font-size gần nhất
+	4. vw : viewport width : độ dài trình duyệt chiều ngang
+	5. vh : viewport height : độ dài trình duyệt chiều dọc
+	6. vmin :
+	7. vmax :
+	8. ex :
+	9. ch :
+
+1. h1-h6-heading: Tiêu đề
+2. p-paragraoh: Đoạn văn
+3. img-image: Hình ảnh
+4. a-anchor(mỏ neo): Liên kết
+5. ul, li- unordered list, list items: Hiển thị dạng danh sách (ol số thay vì dấu chấm)
+6. table: Dạng bảng
+7. input: Dữ liệu nhập từ bàn phím
+8. button: Nút 
+9. div: Tạo khối bao quanh phần tử khác
+
+PC: >=1024
+px Tablet: >= 740px & <1024px
+Mobile: < 739px
