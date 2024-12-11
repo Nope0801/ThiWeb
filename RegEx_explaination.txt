@@ -1,0 +1,32 @@
+Kiem tra so dien thoai
+var check_phone = /^\(\d{2,4}\)[\s\.-]\d{3}[\s\.-]\d{3}$/;
+^ và $: Đảm bảo rằng chuỗi khớp toàn bộ từ đầu đến cuối.
+\(\d{2,4}\): Kiểm tra số điện thoại phải bắt đầu bằng mã vùng trong dấu ngoặc, gồm 2 đến 4 chữ số (\d{2,4}).
+[\s\.-]: Sau mã vùng, phải có một trong các ký tự: dấu cách (\s), dấu chấm (.), hoặc dấu gạch ngang (-).
+\d{3}: Ba chữ số tiếp theo (phần đầu của số điện thoại).
+[\s\.-]: Tiếp tục là một trong các ký tự: dấu cách, dấu chấm, hoặc dấu gạch ngang.
+\d{3}: Ba chữ số cuối của số điện thoại.
+
+Kiem tra email
+var check_email = /^([\w-]+(\?\:\.[\w-]+)*)@((\?\:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(\?\:\.[a-z]{2})?)$/;
+Biểu thức này khá phức tạp, nhưng nó kiểm tra định dạng của địa chỉ email:
+^ và $: Đảm bảo chuỗi phải khớp toàn bộ từ đầu đến cuối.
+[\w-]+: Phần đầu email phải chứa ít nhất một ký tự chữ, số hoặc dấu gạch ngang (-).
+(\?\:\.[\w-]+)*: Sau đó, có thể có thêm phần mở rộng được phân cách bởi dấu chấm (.).
+@: Email phải chứa ký tự @.
+((\?\:[\w-]+\.)*\w[\w-]{0,66}): Tên miền (domain) có thể có nhiều phần, mỗi phần được phân cách bởi dấu chấm.
+\.([a-z]{2,6}(\?\:\.[a-z]{2})?): Tên miền cấp cao nhất (TLD) phải từ 2 đến 6 ký tự chữ cái, ví dụ: .com, .org.
+
+Kiem tra ten nguoi dung
+var check_username = /^[A-Za-z0-9_]{1,20}$/;
+^[A-Za-z0-9_]: Tên người dùng chỉ chứa chữ cái (A-Z, a-z), số (0-9), hoặc dấu gạch dưới (_).
+{1,20}$: Chiều dài từ 1 đến 20 ký tự.
+Ví dụ hợp lệ:
+
+username_123
+user1
+
+Kiem tra mat khau
+var check_password = /^[A-Za-z0-9!@#$%^&*()_]{6,20}$/;
+^[A-Za-z0-9!@#$%^&*()_]: Mật khẩu chỉ được chứa chữ cái (A-Z, a-z), số (0-9), và các ký tự đặc biệt: !@#$%^&*()_.
+{6,20}$: Chiều dài mật khẩu từ 6 đến 20 ký tự.
